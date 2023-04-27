@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY='same-origin-allow-popups'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # Application definition
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     
     "store.apps.StoreConfig",
+    "crispy_forms",
 
 ]
 

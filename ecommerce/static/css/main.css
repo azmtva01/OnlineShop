@@ -4,13 +4,33 @@ body {
     background-color: hsl(0, 0%, 98%);
 }
 
-h1,
 h2,
 h3,
-h4,
 h5,
 h6 {
     color: hsl(0, 0%, 30%);
+}
+
+h4 {
+    color: #ffffff
+}
+
+h1 {
+    color: #ffffff
+}
+
+div.collapse navbar-collapse {
+    text-align: center;
+}
+
+ul.navbar-nav mr-auto {
+    display: inline-block;
+    text-align: center;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, .5);
+    text-align-last: center;
 }
 
 .box-element {
@@ -103,3 +123,103 @@ h6 {
 .hidden {
     display: none!important;
 }
+
+
+/*FOOTER*/
+
+footer {
+    background: #4f868c;
+    background: -webkit-linear-gradient(59deg, #3A6073, #4f868c);
+    background: linear-gradient(59deg, #3A6073, #4f868c);
+    color: white;
+    margin-top: 100px;
+}
+
+footer a {
+    color: #fff;
+    font-size: 14px;
+    transition-duration: 0.2s;
+}
+
+footer a:hover {
+    color: #e8fa4b;
+    text-decoration: none;
+}
+
+.copy {
+    font-size: 12px;
+    padding: 10px;
+    border-top: 1px solid #FFFFFF;
+}
+
+.footer-middle {
+    padding-top: 2em;
+    color: white;
+}
+
+
+/*SOCİAL İCONS*/
+
+
+/* footer social icons */
+
+ul.social-network {
+    list-style: none;
+    display: inline;
+    margin-left: 0 !important;
+    padding: 0;
+}
+
+ul.social-network li {
+    display: inline;
+    margin: 0 5px;
+}
+
+
+/* footer social icons */
+
+.social-network a.icoFacebook:hover {
+    background-color: #4f868c;
+}
+
+.social-network a.icoLinkedin:hover {
+    background-color: #4f868c;
+}
+
+.social-network a.icoFacebook:hover I,
+.social-network a.icoLinkedin:hover I {
+    color: #fff;
+}
+
+.social-network a.socialIcon:hover,
+.socialHoverClass {
+    color: #44BCDD;
+}
+
+.social-circle li {
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+/* .social-circle li a.fa-facebook {
+    background-color: #3B5998;
+}
+
+.social-circle li a.fa-twitter {
+    background-color: #1DA1F2;
+}
+
+.social-circle li a.fa-linkedin {
+    background-color: #0077B5;
+}
+
+.social-circle li a.fa-instagram {
+    background-color: #E4405F;
+}
+
+.social-circle li a.fa-pinterest {
+    background-color: #BD081C;
+} */

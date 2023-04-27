@@ -1,0 +1,47 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="row-1">
+		
+    <div class="box-element">
+        <a  class="btn btn-outline-dark" href="{% url 'store' %}">&#x2190; Continue Shopping</a>
+
+    </div>
+<br>
+<br>
+
+<div class="col-lg-20">
+    <div class="box-element">
+        <hr>
+        <h3>Detail Page The Product</h3>
+        <hr>
+    
+        <div class="cart-row">
+            <div style="flex:2"><img class="row-image" src="{{data.imageURL}}"></div>
+            <div style="flex:2"><p>{{data.name}}</p></div>
+            <div style="flex:1"><p>${{data.price|floatformat:2}}</p></div>
+
+            {% comment %} <button data-product={{product.id}} data-action="add"  
+               class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button> {% endcomment %}
+
+           
+        </div>
+
+            <br>
+            <p>{{data.decsription}}</p>
+
+        <p style="text-align:center;">
+            Everyone deserves to buy what they want. So go ahead and give yourself a present
+        </p>
+    
+    </div>
+</div>
+     
+
+
+</div>
+
+{% endblock content %}
+

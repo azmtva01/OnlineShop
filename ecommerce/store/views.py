@@ -1,10 +1,26 @@
 import json
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 from django.http import JsonResponse
 import datetime
 from django.views.decorators.csrf import csrf_exempt
 from .utils import cookieCart, cartData, guestOrder
+from django.contrib.auth import authenticate, login, logout
+from .forms import NewUserForm
+from django.contrib.auth import login, authenticate
+from django.contrib import messages
+
+from django.contrib.auth.forms import AuthenticationForm 
+
+
+def about(request):
+    return render(request, 'store/about_us.html')
+
+
+def detail(request, pk):
+    data = get_object_or_404(Product, pk=pk)
+    context = {"data":data }
+    return render(request, 'store/detail.html', context)
 
 
 def store(request):
@@ -40,6 +56,7 @@ def checkout(request):
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'store/checkout.html', context)
+
 
 
 def updateItem(request):
@@ -96,3 +113,36 @@ def processOrder(request):
         )
 
     return JsonResponse('Payment submitted..', safe=False)
+
+
+
+def register_request(request):
+	if request.method == "POST":
+		form = NewUserForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+			login(request, user)
+			messages.success(request, "Registration successful." )
+			return redirect("store")
+		messages.error(request, "Unsuccessful registration. Invalid information.")
+	form = NewUserForm()
+	return render (request=request, template_name="store/register.html", context={"register_form":form})
+
+
+def login_request(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+    if form.is_valid():
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.info(request, f"You are now logged in as {username}.")
+            return redirect("store")
+        else:
+            messages.error(request,"Invalid username or password.")
+    else:
+        messages.error(request,"Invalid username or password.")
+    form = AuthenticationForm()
+    return render(request=request, template_name="store/login.html", context={"login_form":form})

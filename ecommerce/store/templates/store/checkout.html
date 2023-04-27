@@ -1,6 +1,7 @@
 {% extends 'store/main.html' %}
 {% load static %}
 {% block content %}
+
      <div class="row">
 		<div class="col-lg-6">
 			<div class="box-element" id="form-wrapper">
@@ -30,9 +31,7 @@
 						<div class="form-field">
 							<input class="form-control" type="text" name="zipcode" placeholder="Zip code..">
 						</div>
-						<div class="form-field">
-							<input class="form-control" type="text" name="country" placeholder="Zip code..">
-						</div>
+					
 					</div>
 
 					<hr>
@@ -115,9 +114,7 @@
 		 }
 
 		if (shipping == 'False' && user != 'AnonymousUser'){
-			//Hide entire form if user is logged in and shipping is false
 				document.getElementById('form-wrapper').classList.add("hidden");
-				//Show payment if logged in user wants to buy an item that does not require shipping
 			    document.getElementById('payment-info').classList.remove("hidden");
 		}
 
@@ -129,11 +126,6 @@
 	    	document.getElementById('payment-info').classList.remove("hidden");
 	    })
 
-		/*
-	    document.getElementById('make-payment').addEventListener('click', function(e){
-	    	submitFormData()
-	    })
-	    */
 
 	    function submitFormData(){
 	    	console.log('Payment button clicked')
@@ -161,6 +153,8 @@
 	    	if (user == 'AnonymousUser'){
 	    		userFormData.name = form.name.value
 	    		userFormData.email = form.email.value
+
+				
 	    	}
 
 	    	console.log('Shipping Info:', shippingInfo)
